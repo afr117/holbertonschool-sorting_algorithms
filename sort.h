@@ -4,7 +4,7 @@
 #include <stddef.h>
 
 /**
- * struct listint_s - Doubly linked list node
+ * struct listint_s - Doubly linked list node structure
  *
  * @n: Integer stored in the node
  * @prev: Pointer to the previous element of the list
@@ -12,16 +12,16 @@
  */
 typedef struct listint_s
 {
-    const int n;
+    int n;
     struct listint_s *prev;
     struct listint_s *next;
 } listint_t;
 
 /* Function prototypes */
-void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
-void bubble_sort(int *array, size_t size);
-void insertion_sort_list(listint_t **list);
+listint_t *insertion_sort_list(listint_t **list);
+
+listint_t *add_nodeint(listint_t **head, int n);
 
 #endif /* SORT_H */
 
