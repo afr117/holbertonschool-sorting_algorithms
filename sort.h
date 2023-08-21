@@ -19,7 +19,7 @@ typedef struct listint_s
 
 /* Function prototypes */
 void print_list(const listint_t *list);
-listint_t *insertion_sort_list(listint_t **list);
+void insertion_sort_list(listint_t **list);
 
 listint_t *add_nodeint(listint_t **head, int n);
 
