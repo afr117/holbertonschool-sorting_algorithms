@@ -14,9 +14,6 @@
 
 listint_t *insertion_sort_list(listint_t **list)
 {
-    if (list == NULL || *list == NULL || (*list)->next == NULL)
-        return (*list);
-
     current = (*list)->next;
     while (current != NULL)
     {
@@ -46,6 +43,8 @@ listint_t *insertion_sort_list(listint_t **list)
 
         current = next_node;
     }
+    if (list == NULL || *list == NULL || (*list)->next == NULL)
+        return (*list);
 
     return (*list);
 }
