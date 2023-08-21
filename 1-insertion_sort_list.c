@@ -15,39 +15,35 @@ void insertion_sort_list(listint_t **list)
         return;
 
     listint_t *current = (*list)->next;
+    listint_t *next_node, *temp, *prev;
 
     while (current != NULL)
     {
-        insertion_sort_step(list, &current);
-    }
-}
-
-void insertion_sort_step(listint_t **list, listint_t **current)
-{
-    listint_t *next_node = (*current)->next;
-    listint_t *temp = *current;
-    listint_t *prev = temp->prev;
-
-    while (prev != NULL && prev->n > temp->n)
-    {
-        prev->next = temp->next;
-        if (temp->next != NULL)
-            temp->next->prev = prev;
-
-        temp->next = prev;
-        temp->prev = prev->prev;
-
-        if (prev->prev != NULL)
-            prev->prev->next = temp;
-        else
-            *list = temp;
-
-        prev->prev = temp;
-
-        print_list(*list);
+        next_node = current->next;
+        temp = current;
         prev = temp->prev;
-    }
 
-    *current = next_node;
+        while (prev != NULL && prev->n > temp->n)
+        {
+            prev->next = temp->next;
+            if (temp->next != NULL)
+                temp->next->prev = prev;
+
+            temp->next = prev;
+            temp->prev = prev->prev;
+
+            if (prev->prev != NULL)
+                prev->prev->next = temp;
+            else
+                *list = temp;
+
+            prev->prev = temp;
+
+            print_list(*list);
+            prev = temp->prev;
+        }
+
+        current = next_node;
+    }
 }
 
