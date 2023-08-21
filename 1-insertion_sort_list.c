@@ -9,40 +9,44 @@
  *              on a doubly linked list. It rearranges the nodes in the
  *              list to sort them in ascending order.
  */
-
 void insertion_sort_list(listint_t **list)
 {
-	if (list == NULL || *list == NULL || (*list)->next == NULL)
-	return;
+    if (list == NULL || *list == NULL || (*list)->next == NULL)
+        return;
 
-	listint_t *current, *next_node, *temp, *prev;
+    listint_t *current;
+    listint_t *next_node;
+    listint_t *temp;
+    listint_t *prev;
 
-	current = (*list)->next;
-	while (current != NULL)
-	{
-	next_node = current->next;
-	temp = current;
-	prev = temp->prev;
+    current = (*list)->next;
+    while (current != NULL)
+    {
+        next_node = current->next;
+        temp = current;
+        prev = temp->prev;
 
-	while (prev != NULL && prev->n > temp->n)
-	{
-	prev->next = temp->next;
-	if (temp->next != NULL)
-	temp->next->prev = prev;
+        while (prev != NULL && prev->n > temp->n)
+        {
+            prev->next = temp->next;
+            if (temp->next != NULL)
+                temp->next->prev = prev;
 
-	temp->next = prev;
-	temp->prev = prev->prev;
+            temp->next = prev;
+            temp->prev = prev->prev;
 
-	if (prev->prev != NULL)
-	prev->prev->next = temp;
-	else
-	*list = temp;
+            if (prev->prev != NULL)
+                prev->prev->next = temp;
+            else
+                *list = temp;
 
-	prev->prev = temp;
+            prev->prev = temp;
 
-	print_list(*list);
-	prev = temp->prev;
+            print_list(*list);
+            prev = temp->prev;
+        }
+
+        current = next_node;
+    }
 }
-	current = next_node;
-}
-}
+
