@@ -4,10 +4,7 @@
  * insertion_sort_list - Sorts a doubly linked list of integers in ascending
  *                      order using the insertion sort algorithm.
  * @list: A pointer to a pointer to the head of the list.
- *
- * Description: This function implements the insertion sort algorithm
- *              on a doubly linked list. It rearranges the nodes in the
- *              list to sort them in ascending order.
+ * Return: A pointer to the sorted list.
  */
 void insertion_sort_list(listint_t **list)
 {
