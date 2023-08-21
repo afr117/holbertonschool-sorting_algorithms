@@ -8,10 +8,10 @@
  */
 listint_t *insertion_sort_list(listint_t **list)
 {
-    listint_t *current, *next_node, *temp, *prev;
-
     if (list == NULL || *list == NULL || (*list)->next == NULL)
         return (*list);
+
+    listint_t *current, *next_node, *temp, *prev;
 
     current = (*list)->next;
 
@@ -47,3 +47,4 @@ listint_t *insertion_sort_list(listint_t **list)
 
     return (*list);
 }
+

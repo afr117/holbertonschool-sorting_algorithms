@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "sort.h"
+#include "sort.h" // Include your header file
 
 int main(void)
 {
@@ -17,12 +17,14 @@ int main(void)
     printf("Original list: ");
     print_list(list);
 
-    // Call the insertion_sort_list function
-    sorted = insertion_sort_list(&list);
+    if (list != NULL) {
+        // Call the insertion_sort_list function
+        sorted = insertion_sort_list(&list);
 
-    // Print the sorted list
-    printf("Sorted list: ");
-    print_list(sorted);
+        // Print the sorted list
+        printf("Sorted list: ");
+        print_list(sorted);
+    }
 
     return 0;
 }
