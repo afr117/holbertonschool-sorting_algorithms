@@ -17,13 +17,6 @@ typedef struct listint_s
     struct listint_s *next;
 } listint_t;
 
-
-/* External declarations for variables */
-extern listint_t *current;
-extern listint_t *next_node;
-extern listint_t *temp;
-extern listint_t *prev;
-
 /* Function prototypes */
 void print_list(const listint_t *list);
 void insertion_sort_list(listint_t **list);
