@@ -1,36 +1,36 @@
 #include "sort.h"
 
+
 void insertion_sort_list(listint_t **list)
 {
-    if (list == NULL || *list == NULL || (*list)->next == NULL)
-        return;
+	listint_t *next_node = current->next;
+        listint_t *temp = current;
+        listint_t *prev = temp->prev;
+        listint_t *current = (*list)->next;
 
-    listint_t *current;
-    listint_t *next_node;
+	if (list == NULL || *list == NULL || (*list)->next == NULL)
+	return;
 
-    current = (*list)->next;
+	while (current != NULL)
+{
 
-    while (current != NULL)
-    {
-        next_node = current->next;
-
-        while (current->prev != NULL && current->n < current->prev->n)
+        while (prev != NULL && prev->n > temp->n)
         {
-            listint_t *prev = current->prev;
+            prev->next = temp->next;
+            if (temp->next != NULL)
+                temp->next->prev = prev;
 
-            prev->next = current->next;
-            if (current->next != NULL)
-                current->next->prev = prev;
-
-            current->next = prev;
-            current->prev = prev->prev;
+            temp->next = prev;
+            temp->prev = prev->prev;
 
             if (prev->prev != NULL)
-                prev->prev->next = current;
+                prev->prev->next = temp;
             else
-                *list = current;
+                *list = temp;
 
-            prev->prev = current;
+            prev->prev = temp;
+
+            prev = temp->prev;
         }
 
         current = next_node;
