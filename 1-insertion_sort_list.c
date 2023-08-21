@@ -47,4 +47,3 @@ listint_t *insertion_sort_list(listint_t **list)
 
     return (*list);
 }
-
