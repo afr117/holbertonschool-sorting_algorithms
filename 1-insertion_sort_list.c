@@ -6,15 +6,16 @@
  * @list: A pointer to a pointer to the head of the list.
  * Return: A pointer to the sorted list.
  */
-listint_t *insertion_sort_list(listint_t **list)
-{
-    if (list == NULL || *list == NULL || (*list)->next == NULL)
-        return (*list);
 
     listint_t *current;
     listint_t *next_node;
     listint_t *temp;
     listint_t *prev;
+
+listint_t *insertion_sort_list(listint_t **list)
+{
+    if (list == NULL || *list == NULL || (*list)->next == NULL)
+        return (*list);
 
     current = (*list)->next;
     while (current != NULL)
@@ -48,4 +49,3 @@ listint_t *insertion_sort_list(listint_t **list)
 
     return (*list);
 }
-
