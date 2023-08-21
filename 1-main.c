@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "sort.h" // Include your header file
-
-listint_t *add_nodeint(listint_t **head, int n);
+#include "sort.h"
 
 int main(void)
 {
