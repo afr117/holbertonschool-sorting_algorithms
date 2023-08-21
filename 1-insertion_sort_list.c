@@ -11,19 +11,18 @@ listint_t *insertion_sort_list(listint_t **list)
     if (list == NULL || *list == NULL || (*list)->next == NULL)
         return (*list);
 
-    listint_t *current = (*list)->next;
-    listint_t *next_node, *temp, *prev;
+    listint_t *current, *next_node, *temp, *prev;
 
+    current = (*list)->next;
     while (current != NULL)
     {
         next_node = current->next;
         temp = current;
+        prev = temp->prev;
 
-        while (temp->prev != NULL && temp->prev->n > current->n)
+        while (prev != NULL && prev->n > temp->n)
         {
-            prev = temp->prev;
             prev->next = temp->next;
-
             if (temp->next != NULL)
                 temp->next->prev = prev;
 
@@ -38,7 +37,7 @@ listint_t *insertion_sort_list(listint_t **list)
             prev->prev = temp;
 
             print_list(*list);
-            temp = prev;
+            prev = temp->prev;
         }
 
         current = next_node;
