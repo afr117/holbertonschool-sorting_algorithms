@@ -17,7 +17,6 @@ listint_t *insertion_sort_list(listint_t **list)
     listint_t *prev;
 
     current = (*list)->next;
-
     while (current != NULL)
     {
         next_node = current->next;
@@ -27,7 +26,6 @@ listint_t *insertion_sort_list(listint_t **list)
         while (prev != NULL && prev->n > temp->n)
         {
             prev->next = temp->next;
-
             if (temp->next != NULL)
                 temp->next->prev = prev;
 
