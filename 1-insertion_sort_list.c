@@ -2,10 +2,11 @@
 
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *current, *insertion_point;
-
     if (list == NULL || *list == NULL || (*list)->next == NULL)
         return;
+
+    listint_t *current;
+    listint_t *insertion_point;
 
     current = (*list)->next;
 
