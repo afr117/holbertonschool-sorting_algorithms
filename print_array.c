@@ -1,5 +1,5 @@
 #include "sort.h"
-#include <stdio.h>’
+#include <stdio.h>
 
 void print_array(const int *array, size_t size)
 {
