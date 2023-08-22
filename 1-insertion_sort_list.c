@@ -2,38 +2,43 @@
 
 void insertion_sort_list(listint_t **list)
 {
+    listint_t *current;
+    listint_t *next_node;
+    listint_t *temp;
+    listint_t *prev;
+
     if (list == NULL || *list == NULL || (*list)->next == NULL)
         return;
-
-    listint_t *current;
-    listint_t *insertion_point;
 
     current = (*list)->next;
 
     while (current != NULL)
     {
-        insertion_point = current->prev;
+        next_node = current->next;
+        temp = current;
+        prev = temp->prev;
 
-        while (insertion_point != NULL && insertion_point->n > current->n)
+        while (prev != NULL && prev->n > temp->n)
         {
-            insertion_point->next = current->next;
-            if (current->next != NULL)
-                current->next->prev = insertion_point;
+            prev->next = temp->next;
+            if (temp->next != NULL)
+                temp->next->prev = prev;
 
-            current->next = insertion_point;
-            current->prev = insertion_point->prev;
+            /* Assignments below, not declarations */
+            temp->next = prev;
+            temp->prev = prev->prev;
 
-            if (insertion_point->prev != NULL)
-                insertion_point->prev->next = current;
+            if (prev->prev != NULL)
+                prev->prev->next = temp;
             else
-                *list = current;
+                *list = temp;
 
-            insertion_point->prev = current;
+            prev->prev = temp;
 
-            insertion_point = current->prev;
+            prev = temp->prev;
         }
 
-        current = current->next;
+        current = next_node;
     }
 }
 
