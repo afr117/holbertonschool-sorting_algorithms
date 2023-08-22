@@ -24,15 +24,13 @@ void insertion_sort_list(listint_t **list)
             if (temp->next != NULL)
                 temp->next->prev = prev;
 
-            /* Assignments below, not declarations */
-            temp->next = prev;
-            temp->prev = prev->prev;
-
             if (prev->prev != NULL)
                 prev->prev->next = temp;
             else
                 *list = temp;
 
+            temp->next = prev;
+            temp->prev = prev->prev;
             prev->prev = temp;
 
             prev = temp->prev;
