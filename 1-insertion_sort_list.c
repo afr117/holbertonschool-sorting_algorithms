@@ -5,13 +5,14 @@ void insertion_sort_list(listint_t **list)
     if (list == NULL || *list == NULL || (*list)->next == NULL)
         return;
 
-    listint_t *current = (*list)->next;
+    listint_t *current, *next_node, *temp, *prev;
+    current = (*list)->next;
 
     while (current != NULL)
     {
-        listint_t *next_node = current->next;
-        listint_t *temp = current;
-        listint_t *prev = temp->prev;
+        next_node = current->next;
+        temp = current;
+        prev = temp->prev;
 
         while (prev != NULL && prev->n > temp->n)
         {
